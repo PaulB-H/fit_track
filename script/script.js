@@ -15,23 +15,33 @@ function new_exercise() {
 
     var builder = setIterator - 1;
 
-    console.log(`new_exercise ${setIterator}`);
-
     var name = document.getElementById("exercise_name").value;
 
-    // if (name === "") {
-    //     iziToast.warning({
-    //         title: 'Enter Exercise Name',
-    //     });
-    //     return;
-    // }
-    // else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false) || (Number.isInteger(reps) === false)) {
-    //     iziToast.warning({
-    //         title: 'Missing Weight or Reps',
-    //         message: 'Numbers Only!',
-    //     });
-    //     return;
-    // };
+    if (name === "") {
+        iziToast.warning({
+            title: 'Enter Exercise Name',
+        });
+        return;
+    }
+
+    for (v = 1; v <= builder; v++) {
+
+        var pseudo_weight = document.getElementById(`exercise${v}_weight`).value;
+
+        pseudo_weight = parseInt(pseudo_weight);
+
+        var pseudo_reps = document.getElementById(`exercise${v}_reps`).value;
+
+        pseudo_reps = parseInt(pseudo_reps);
+
+        if ((pseudo_weight === "") || (pseudo_reps === "") || (Number.isInteger(pseudo_weight) === false) || (Number.isInteger(pseudo_reps) === false)) {
+            iziToast.warning({
+                title: 'Missing Weight or Reps',
+                message: 'Numbers Only!',
+            });
+            return;
+        };
+    }
 
     let sets = [];
 
