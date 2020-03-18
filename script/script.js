@@ -17,8 +17,6 @@ function new_exercise() {
 
     var name = document.getElementById("exercise_name").value;
 
-
-
     if (name === "") {
         iziToast.warning({
             title: 'Enter Exercise Name',
