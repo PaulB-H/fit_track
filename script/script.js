@@ -5,11 +5,9 @@ let setIterator = 2;
 let builder = setIterator - 1;
 
 class exerciseObj {
-    constructor(name, set, weight, reps) {
+    constructor(name, sets) {
         this.name = name;
-        this.set = set;
-        this.weight = weight;
-        this.reps = reps;
+        this.sets = sets;
     };
 };
 
@@ -19,9 +17,7 @@ function new_exercise() {
 
     var name = document.getElementById("exercise_name").value;
 
-    var set = document.getElementById("exercise1_set").value;
-    var weight = document.getElementById("exercise1_weight").value;
-    var reps = document.getElementById("exercise1_reps").value;
+
 
     if (name === "") {
         iziToast.warning({
@@ -29,7 +25,7 @@ function new_exercise() {
         });
         return;
     }
-    else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false)) {
+    else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false) || (Number.isInteger(reps) === false)) {
         iziToast.warning({
             title: 'Missing Weight or Reps',
             message: 'Numbers Only!',
@@ -37,7 +33,15 @@ function new_exercise() {
         return;
     };
 
-    let exercise = new exerciseObj(name, set, weight, reps);
+    let sets = []
+
+    for (i = 1; i <= builder; i++) {
+        var weight = document.getElementById(`exercise${i}_weight`).value;
+        var reps = document.getElementById(`exercise${i}_reps`).value;
+        sets.push({ 'set': i, 'reps': reps, 'weight': weight });
+    };
+
+    let exercise = new exerciseObj(name, sets);
 
     workout.push(exercise);
 
