@@ -1,6 +1,8 @@
-const workoutArray = [];
+let workout = [{ 'name': 'Your Workout' }];
 
 let setIterator = 2;
+
+let builder = setIterator - 1;
 
 class exerciseObj {
     constructor(name, set, weight, reps) {
@@ -11,21 +13,15 @@ class exerciseObj {
     };
 };
 
-// var exercise = new exerciseObj(1, 2, 3, 4);
-
 document.getElementById("submit_button").addEventListener("click", new_exercise);
 
 function new_exercise() {
 
     var name = document.getElementById("exercise_name").value;
 
-    console.log(name);
-
     var set = document.getElementById("exercise1_set").value;
     var weight = document.getElementById("exercise1_weight").value;
     var reps = document.getElementById("exercise1_reps").value;
-
-    console.log(typeof weight);
 
     if (name === "") {
         iziToast.warning({
@@ -35,22 +31,17 @@ function new_exercise() {
     }
     else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false)) {
         iziToast.warning({
-            title: 'Missing Weight or Reps \n',
-            titleSize: 20,
-            titleLineHeight: 40,
+            title: 'Missing Weight or Reps',
             message: 'Numbers Only!',
-            messageSize: 25,
-            messageLineHeight: 40,
-            timeout: 4000,
         });
         return;
     };
 
     let exercise = new exerciseObj(name, set, weight, reps);
 
-    workoutArray.push(exercise);
+    workout.push(exercise);
 
-    console.log(JSON.stringify(workoutArray));
+    console.log(JSON.stringify(workout));
 
     $("#new_workout").html(`            
             <label id="exercise_label" for="exercise_name">Exercise</label>
