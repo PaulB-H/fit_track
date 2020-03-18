@@ -1,4 +1,7 @@
-let workout = [{ 'name': 'Your Workout' }];
+var d = new Date();
+var dateString = d.toDateString();
+
+let workout = [{ 'date': dateString }];
 
 var setIterator = 2;
 
