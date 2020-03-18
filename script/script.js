@@ -1,8 +1,6 @@
 let workout = [{ 'name': 'Your Workout' }];
 
-let setIterator = 2;
-
-let builder = setIterator - 1;
+var setIterator = 2;
 
 class exerciseObj {
     constructor(name, sets) {
@@ -15,35 +13,39 @@ document.getElementById("submit_button").addEventListener("click", new_exercise)
 
 function new_exercise() {
 
+    var builder = setIterator - 1;
+
+    console.log(`new_exercise ${setIterator}`);
+
     var name = document.getElementById("exercise_name").value;
 
-    if (name === "") {
-        iziToast.warning({
-            title: 'Enter Exercise Name',
-        });
-        return;
-    }
-    else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false) || (Number.isInteger(reps) === false)) {
-        iziToast.warning({
-            title: 'Missing Weight or Reps',
-            message: 'Numbers Only!',
-        });
-        return;
-    };
+    // if (name === "") {
+    //     iziToast.warning({
+    //         title: 'Enter Exercise Name',
+    //     });
+    //     return;
+    // }
+    // else if ((weight === "") || (reps === "") || (Number.isInteger(weight) === false) || (Number.isInteger(reps) === false)) {
+    //     iziToast.warning({
+    //         title: 'Missing Weight or Reps',
+    //         message: 'Numbers Only!',
+    //     });
+    //     return;
+    // };
 
-    let sets = []
+    let sets = [];
 
     for (i = 1; i <= builder; i++) {
         var weight = document.getElementById(`exercise${i}_weight`).value;
         var reps = document.getElementById(`exercise${i}_reps`).value;
         sets.push({ 'set': i, 'reps': reps, 'weight': weight });
+        console.log(`Looped ${i} times`)
+        console.log(builder)
     };
 
-    let exercise = new exerciseObj(name, sets);
+    var exercise = new exerciseObj(name, sets);
 
     workout.push(exercise);
-
-    console.log(JSON.stringify(workout));
 
     $("#new_workout").html(`            
             <label id="exercise_label" for="exercise_name">Exercise</label>
@@ -102,6 +104,8 @@ $('.add_set').click(function () {
 
     setIterator++;
 
+    console.log(setIterator);
+
 });
 
 $('.delete_set').click(function () {
@@ -109,6 +113,7 @@ $('.delete_set').click(function () {
     if (setIterator >= 3) {
         $('#new_workout .form-row').last().remove();
         setIterator--;
+        console.log(setIterator);
     };
 
 });
