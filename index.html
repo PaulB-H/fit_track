@@ -7,96 +7,69 @@
     <title>Fit Track</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/301fc3fb33.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css"
+        integrity="sha256-f6fW47QDm1m01HIep+UjpCpNwLVkBYKd+fhpb4VQ+gE=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style/style.css">
-
-    <style>
-        .track_format {
-            margin: auto;
-            width: 288px;
-        }
-
-        .form_p {
-            margin-bottom: 0;
-            min-width: 70px;
-        }
-
-        .form-row {
-            margin: 5px 10px;
-        }
-
-        .set_number:hover {
-            cursor: default;
-        }
-
-        .fa-plus {
-            margin-right: 10px;
-        }
-
-        .add_set:hover,
-        .add_exercise:hover {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
 
-    <div class="track_format">
+    <h4 style="text-align: center;"><i class="fas fa-dumbbell"></i>Fit Track<i class="fas fa-dumbbell"></i></h4>
 
-        <h4 style="text-align: center;">Fit Track</h4>
+    <div id="create_exercise" style="display: none;">
 
-        <form>
+        <form id="new_workout">
+
+            <!-- <label id="exercise_label" for="exercise_name">Exercise</label>
 
             <div class="form-row">
-                <input name="exercise1_name" type="text" class="form-control" placeholder="Exercise Name">
+                <input id="exercise_name" name="exercise_name" type="text" class="form-control"
+                    placeholder="Exercise Name">
             </div>
 
             <div class="form-row">
-
-                <div class="col-auto set_number">
-
-                    <p class="form-control form_p">Set 1</p>
-
+                <div class="col-3 set_number">
+                    <label for="set_num">Set</label>
+                    <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px"
+                        readonly>
                 </div>
-
                 <div class="col-4">
-
-                    <!-- <label for="set1_weight">Set 1 Weight</label> -->
-
-                    <input name="set1_weight" type="text" class="form-control" placeholder="Weight">
-
+                    <label for="set1_weight">Weight</label>
+                    <input id="exercise1_weight" name="set1_weight" type="number" class="form-control"
+                        placeholder="Weight">
                 </div>
-
                 <div class="col-4">
-
-                    <!-- <label for="set1_reps">Set 1 Reps</label> -->
-
-                    <input name="set1_reps" type="text" class="form-control" placeholder="Reps">
-
+                    <label for="set1_reps">Reps</label>
+                    <input id="exercise1_reps" name="set1_reps" type="number" class="form-control" placeholder="Reps">
                 </div>
-
-            </div>
+            </div> -->
 
         </form>
 
         <div class="form-row">
             <p class="form-control col form_p add_set"><i class="fas fa-plus"></i>ADD SET</p>
+            <p class="form-control col form_p delete_set"><i class="fas fa-minus"></i>DEL SET</p>
+        </div>
+
+
+        <div class="form-row">
+            <button id="submit_button" type="submit" class="btn btn-primary col">Save Exercise</button>
         </div>
 
         <hr>
 
-        <div class="form-row">
-
+        <!-- <div class="form-row">
             <p class="form-control col form_p add_exercise"><i class="fas fa-plus"></i>ADD EXERCISE</p>
-        </div>
+        </div> -->
 
     </div>
 
-    <script>
 
 
-    </script>
+
+
 
     <div id="scripts" style="display: none !important;">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -107,6 +80,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"
+            integrity="sha256-321PxS+POvbvWcIVoRZeRmf32q7fTFQJ21bXwTNWREY=" crossorigin="anonymous"></script>
         <script src="script/script.js"></script>
     </div>
 
