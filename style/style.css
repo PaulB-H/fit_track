@@ -77,3 +77,29 @@ label {
 .add_set:hover, .delete_set:hover, .add_exercise:hover {
     cursor: pointer;
 }
+
+.workout_current_set_div {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.workout_current_set {
+    margin-left: 20px;
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.workout_current_set_icon {
+    float: right;
+    font-size: 20px;
+    margin-top: 2px;
+    margin-right: 5px;
+    background: #FD7979;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    margin-top: -3px;
+}

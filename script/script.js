@@ -1,7 +1,8 @@
 var d = new Date();
+
 var dateString = d.toDateString();
 
-let workout = [{ 'date': dateString }];
+let workout = [{ 'name': '', 'date': dateString }];
 
 var setIterator = 2;
 
@@ -86,6 +87,11 @@ function new_exercise() {
             </div>
     `);
 
+    iziToast.success({
+        title: 'OK',
+        message: 'Successfully added exercise!',
+    });
+
     setIterator = 2;
 
 };
@@ -116,8 +122,6 @@ $('.add_set').click(function () {
     `);
 
     setIterator++;
-
-    console.log(setIterator);
 
 });
 
@@ -160,6 +164,39 @@ $('document').ready(function () {
             </div>
     `);
 });
+
+
+
+$('#view_workout').click(function () {
+    showCurrentWorkout();
+});
+
+function showCurrentWorkout() {
+
+    $("#workout_builder").html("")
+
+    console.log(`Workout Name: NoName Workout Date: ${workout[0].date}`)
+
+    $("#workout_builder").append(`<p>Workout Date: ${workout[0].date}</p>`)
+
+    var i;
+
+    for (i = 1; i < workout.length; i++) {
+
+        console.log(`Exercise ${i} : ${workout[i].name}`)
+
+        $("#workout_builder").append(`<div id="exercise${i}div" class="workout_current_set_div"><p>Exercise ${i} : ${workout[i].name}</p></div>`)
+
+        for (a = 0; a < workout[i].sets.length; a++) {
+
+            console.log(`Set # ${workout[i].sets[a].set}, weight: ${workout[i].sets[a].weight}, reps: ${workout[i].sets[a].reps} `)
+
+            $(`#exercise${i}div`).append(`<p class="workout_current_set">Set ${workout[i].sets[a].set}: weight: ${workout[i].sets[a].weight} / reps: ${workout[i].sets[a].reps} <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i> </p>`)
+
+        }
+    }
+
+}
 
 iziToast.settings({
     position: 'topCenter',
