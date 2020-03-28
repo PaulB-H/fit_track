@@ -29,22 +29,20 @@
         <form id="new_workout">
 
             <!-- <label id="exercise_label" for="exercise_name">Exercise</label>
-
+            
             <div class="form-row">
-                <input id="exercise_name" name="exercise_name" type="text" class="form-control"
-                    placeholder="Exercise Name">
+                <input id="exercise_name" name="exercise_name" type="text" class="form-control" placeholder="Exercise Name">
             </div>
-
+            
             <div class="form-row">
-                <div class="col-3 set_number">
-                    <label for="set_num">Set</label>
-                    <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px"
+                <div class="col-3 set_number" tabindex="-1">
+                    <label for="set_num" tabindex="-1">Set</label>
+                    <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px" tabindex="-1"
                         readonly>
                 </div>
                 <div class="col-4">
                     <label for="set1_weight">Weight</label>
-                    <input id="exercise1_weight" name="set1_weight" type="number" class="form-control"
-                        placeholder="Weight">
+                    <input id="exercise1_weight" name="set1_weight" type="number" class="form-control" placeholder="Weight">
                 </div>
                 <div class="col-4">
                     <label for="set1_reps">Reps</label>
@@ -62,19 +60,17 @@
 
         <div class="form-row">
             <button id="submit_button" type="submit" class="btn btn-primary col">Add Exercise to Workout</button>
+            <button id="view_workout" class="btn btn-primary col">View Workout-in-Progress</button>
         </div>
 
         <hr>
 
-        <!-- <div class="form-row">
-            <p class="form-control col form_p add_exercise"><i class="fas fa-plus"></i>ADD EXERCISE</p>
-        </div> -->
 
     </div>
 
     <div class="" style="width: 278px; margin: auto;">
 
-        <button id="view_workout" class="btn btn-primary col">View Workout</button>
+
 
         <div id="workout_builder">
 
@@ -83,6 +79,119 @@
     </div>
 
 
+    <!-- <form id="workout-in-progress"
+        style="width: 271px; display: flex; justify-content: center; flex-direction: column; align-items: center; margin: auto;">
+
+
+
+        <div class="form-row col-12" style="padding-left: 0; padding-right: 0;">
+            <label id="wip-exercise-label" for="wip-exercise-name" style="margin-left: 0;">Exercise</label>
+            <input id="" name="wip-exercise-name" type="text" class="form-control" value="disabled" disabled>
+        </div>
+
+        <div class="form-row" style="justify-content: left;">
+            <div class="col-1" style="margin-right: 5px;">
+                <label for="set_num" tabindex="-1">Set</label>
+            </div>
+            <div class="col-2 set_number" tabindex="-1">
+                <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px"
+                    tabindex="-1" readonly disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+
+
+
+            <div class="col-3">
+                <label for="wip-weight">Weight</label>
+            </div>
+            <div class="col-3">
+                <input id="${wip[]set[].weight}" name="wip-weight" type="number" class="form-control" disabled>
+            </div>
+
+
+            <div class="col-3">
+                <label for="wip-reps">Reps</label>
+            </div>
+            <div class="col-3">
+                <input id="${wip[]set[].reps}" name="wip-reps" type="number" class="form-control" disabled>
+            </div>
+
+
+        </div>
+
+    </form> -->
+
+    <form id="workout-in-progress" style="width: 278px; margin: auto;">
+
+        <p>New form layout for "Workout In Progress" view and editing &#8681; </p>
+
+        <p value="${workout[0].date}" style="margin-bottom: 0;">Workout: Sat Mar 28 2020</p>
+
+        <div id="exercise1div" class="workout_current_set_div">
+
+            <div style="margin-right: 0.37em; margin-right: 0.375em;">
+
+                <input id="" name="wip-exercise-name" type="text" class="" value="Bicep Curl" readonly
+                    style="border: none; font-weight: bold; width: 75%; padding: 5px; padding-bottom: 0;">
+
+                <button type="button" style="background: white; border: none; float:right;">
+                    <i class="far fa-trash-alt workout_current_set_icon" style=""></i>
+                </button>
+
+                <button type="button" style="background: white; border: none; float:right;">
+                    <i class="far fa-edit edit_icon" style=""></i>
+                </button>
+
+            </div>
+
+
+            <div>
+                <label id="wip-exercise-label" for="wip-exercise-name" style="margin-left: 20px;">Set 1</label>
+            </div>
+
+            <div style="border: 1px solid lightgray; padding: 5px; border-radius: 10px; height: 37px; 
+                overflow: hidden;">
+
+                <p class="wafl">Weight: </p>
+                <input id="${wip[i]set[i].weight}" name="wip-weight" type="number" class="wafl"
+                    style="border: none; width: 15%; text-align: center; font-weight: bold" value="10" readonly>
+
+                <p class="wafl">/ Reps: </p>
+                <input id="${wip[i]set[i].reps}" name="wip-reps" type="number" class="wafl"
+                    style="border: none; width: 15%; text-align: center; font-weight: bold;" value="20" readonly>
+
+                <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i>
+                <i class="far fa-edit edit_icon" style="float:right;"></i>
+
+            </div>
+
+
+            <div>
+                <label id="wip-exercise-label" for="wip-exercise-name" style="margin-left: 20px;">Set 2</label>
+            </div>
+
+            <div style="border: 1px solid lightgray; padding: 5px; border-radius: 10px; height: 37px; 
+                overflow: hidden;">
+
+                <p class="wafl">Weight: </p>
+                <input id="${wip[i]set[i].weight}" name="wip-weight" type="number" class="wafl"
+                    style="border: none; width: 15%; text-align: center; font-weight: bold" value="10" readonly>
+
+                <p class="wafl">/ Reps: </p>
+                <input id="${wip[i]set[i].reps}" name="wip-reps" type="number" class="wafl"
+                    style="border: none; width: 15%; text-align: center; font-weight: bold;" value="20" readonly>
+
+                <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i>
+                <i class="far fa-edit edit_icon" style="float:right;"></i>
+
+            </div>
+
+
+        </div>
+
+    </form>
 
 
 

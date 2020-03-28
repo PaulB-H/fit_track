@@ -187,7 +187,7 @@ function showCurrentWorkout() {
 
             <div id="exercise${i}div" class="workout_current_set_div">
 
-                <p style="margin-bottom: 0; margin-right: 1px;"><strong>${workout[i].name}</strong>
+                <p style="margin-bottom: 0; margin-right: 0.06em;"><strong>${workout[i].name}</strong>
                     <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i>
                     <i class="far fa-edit edit_icon" style="float:right;"></i>
                 </p>

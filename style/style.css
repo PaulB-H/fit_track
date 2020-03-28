@@ -18,6 +18,11 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+.wafl {
+    width: auto;
+    float: left;
+}
+
 .iziToast-wrapper {
     margin-top: 40px;
 }
@@ -98,7 +103,7 @@ label {
     float: right;
     font-size: 15px;
     margin-top: 2px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     background: #FD7979;
     padding: 5px;
     border-radius: 5px;
@@ -117,4 +122,8 @@ label {
     margin-bottom: 2px;
     margin-top: -0.01em;
     width: 25px;
+}
+
+button:focus {
+    all: unset;
 }
