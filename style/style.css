@@ -83,12 +83,14 @@ label {
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .workout_current_set {
     padding: 5px;
     border: 1px solid lightgray;
     border-radius: 10px;
+    margin-bottom: 2px;
 }
 
 .workout_current_set_icon {

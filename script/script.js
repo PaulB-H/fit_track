@@ -183,15 +183,17 @@ function showCurrentWorkout() {
 
     for (i = 1; i < workout.length; i++) {
 
-        console.log(`Exercise ${i} : ${workout[i].name}`)
+        console.log(`Exercise ${i}: {workout[i].name}`)
 
-        $("#workout_builder").append(`<div id="exercise${i}div" class="workout_current_set_div"><p>Exercise ${i} : ${workout[i].name}</p></div>`)
+        $("#workout_builder").append(`<div id="exercise${i}div" class="workout_current_set_div"><p style="margin-bottom: 0; ">Exercise ${i}: <strong>${workout[i].name}</strong></p></div>`)
 
         for (a = 0; a < workout[i].sets.length; a++) {
 
             console.log(`Set # ${workout[i].sets[a].set}, weight: ${workout[i].sets[a].weight}, reps: ${workout[i].sets[a].reps} `)
 
-            $(`#exercise${i}div`).append(`<p class="workout_current_set">Set ${workout[i].sets[a].set}: weight: ${workout[i].sets[a].weight} / reps: ${workout[i].sets[a].reps} <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i> </p>`)
+            $(`#exercise${i}div`).append(`
+            <p style="margin-bottom: 0; margin-left: 20px;">Set ${workout[i].sets[a].set}</p>
+            <p class="workout_current_set"> Weight: ${workout[i].sets[a].weight} / Reps: ${workout[i].sets[a].reps}<i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i></p>`)
 
         }
     }
