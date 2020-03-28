@@ -61,35 +61,40 @@ function new_exercise() {
 
     workout.push(exercise);
 
-    $("#new_workout").html(`            
-            <label id="exercise_label" for="exercise_name">Exercise</label>
+    $("#new_workout").html(`
+    
+        <label id="exercise_label" for="exercise_name">Exercise</label>
 
-            <div class="form-row">
-                <input id="exercise_name" name="exercise_name" type="text" class="form-control"
-                    placeholder="Exercise Name">
+        <div class="form-row">
+            <input id="exercise_name" name="exercise_name" type="text" class="form-control"
+                placeholder="Exercise Name">
+        </div>
+
+        <div class="form-row">
+
+            <div class="col-3 set_number" tabindex="-1">
+                <label for="set_num" tabindex="-1">Set</label>
+                <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px" tabindex="-1"
+                    readonly>
             </div>
 
-            <div class="form-row">
-                <div class="col-3 set_number" tabindex="-1">
-                    <label for="set_num" tabindex="-1">Set</label>
-                    <input id="exercise1_set" name="set_num" class="form-control" value="1" style="padding-left: 6px" tabindex="-1"
-                        readonly>
-                </div>
-                <div class="col-4">
-                    <label for="set1_weight">Weight</label>
-                    <input id="exercise1_weight" name="set1_weight" type="number" class="form-control"
-                        placeholder="Weight">
-                </div>
-                <div class="col-4">
-                    <label for="set1_reps">Reps</label>
-                    <input id="exercise1_reps" name="set1_reps" type="number" class="form-control" placeholder="Reps">
-                </div>
+            <div class="col-4">
+                <label for="set1_weight">Weight</label>
+                <input id="exercise1_weight" name="set1_weight" type="number" class="form-control" placeholder="Weight">
             </div>
+
+            <div class="col-4">
+                <label for="set1_reps">Reps</label>
+                <input id="exercise1_reps" name="set1_reps" type="number" class="form-control" placeholder="Reps">
+            </div>
+
+        </div>
+
     `);
 
     iziToast.success({
         title: 'OK',
-        message: 'Successfully added exercise!',
+        message: 'Added exercise to workout!',
     });
 
     setIterator = 2;
@@ -135,7 +140,6 @@ $('.delete_set').click(function () {
 
 });
 
-
 $('document').ready(function () {
 
     $("#new_workout").html(`            
@@ -165,8 +169,6 @@ $('document').ready(function () {
     `);
 });
 
-
-
 $('#view_workout').click(function () {
     showCurrentWorkout();
 });
@@ -175,25 +177,37 @@ function showCurrentWorkout() {
 
     $("#workout_builder").html("")
 
-    console.log(`Workout Name: NoName Workout Date: ${workout[0].date}`)
-
-    $("#workout_builder").append(`<p>Workout Date: ${workout[0].date}</p>`)
+    $("#workout_builder").append(`<p style="margin-bottom: 5px; margin-top: 10px; ">Workout: ${workout[0].date}<i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i></p> `)
 
     var i;
 
     for (i = 1; i < workout.length; i++) {
 
-        console.log(`Exercise ${i}: {workout[i].name}`)
+        $("#workout_builder").append(`
 
-        $("#workout_builder").append(`<div id="exercise${i}div" class="workout_current_set_div"><p style="margin-bottom: 0; ">Exercise ${i}: <strong>${workout[i].name}</strong></p></div>`)
+            <div id="exercise${i}div" class="workout_current_set_div">
+
+                <p style="margin-bottom: 0; margin-right: 1px;"><strong>${workout[i].name}</strong>
+                    <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i>
+                    <i class="far fa-edit edit_icon" style="float:right;"></i>
+                </p>
+
+            </div>
+
+        `)
 
         for (a = 0; a < workout[i].sets.length; a++) {
 
-            console.log(`Set # ${workout[i].sets[a].set}, weight: ${workout[i].sets[a].weight}, reps: ${workout[i].sets[a].reps} `)
-
             $(`#exercise${i}div`).append(`
-            <p style="margin-bottom: 0; margin-left: 20px;">Set ${workout[i].sets[a].set}</p>
-            <p class="workout_current_set"> Weight: ${workout[i].sets[a].weight} / Reps: ${workout[i].sets[a].reps}<i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i></p>`)
+
+                <p style="margin-bottom: 0; margin-left: 20px;">Set ${workout[i].sets[a].set}</p>
+
+                <p class="workout_current_set"> Weight: <strong>${workout[i].sets[a].weight}</strong> / Reps: <strong>${workout[i].sets[a].reps}</strong>
+                    <i class="far fa-trash-alt workout_current_set_icon" style="float: right;"></i>
+                    <i class="far fa-edit edit_icon" style="float:right;"></i>
+                </p>
+
+            `)
 
         }
     }
