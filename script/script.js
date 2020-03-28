@@ -221,3 +221,48 @@ iziToast.settings({
     timeout: 3000,
     closeOnClick: true,
 });
+
+
+$('.edit-btn').click(function () {
+    $("input").each(function (index) {
+        $(this).attr("readonly", "");
+        $(this).css("background", "white");
+        $(this).css("border", "none");
+        console.log("Loop")
+    });
+    $(".save-btn").each(function (index) {
+        $(this).hide();
+        $(this).prev("button").show();
+
+    });
+    $(this).prevAll("input").removeAttr("readonly");
+    $(this).prevAll("input").css("background", "#E9ECEF");
+    $(this).prevAll("input").css("border", "1px solid darkgray");
+    $(this).prevAll("input").css("border-radius", "5px");
+    $(this).prevAll("input").fadeToggle("fast");
+    $(this).prevAll("input").fadeToggle("fast");
+    $(this).prevAll("input").fadeToggle("fast");
+    $(this).prevAll("input").fadeToggle("fast");
+    $(this).prevAll("input").fadeToggle("fast");
+    $(this).prevAll("input").fadeToggle("fast");
+    // for (var i = 0; i > 6; i++) {
+    //     $(this).prevAll("input").fadeToggle("fast");
+    //     console.log("fadetoggle loop")
+    // };
+    // $(this).fadeOut();
+    // $(this).next("button").delay(500).fadeIn();
+
+    $(this).hide();
+    $(this).next("button").show();
+});
+
+$('.save-btn').click(function () {
+    $(this).prevAll("input").attr("readonly", "");
+    $(this).prevAll("input").css("background", "white");
+    $(this).prevAll("input").css("border", "none");
+    // $(this).fadeOut();
+    // $(this).prev("button").delay(500).fadeIn();
+
+    $(this).hide();
+    $(this).prev("button").show();
+});

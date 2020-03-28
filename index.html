@@ -60,9 +60,12 @@
 
         <div class="form-row">
             <button id="submit_button" type="submit" class="btn btn-primary col">Add Exercise to Workout</button>
-            <button id="view_workout" class="btn btn-primary col">View Workout-in-Progress</button>
         </div>
-
+        <br />
+        <div class="form-row">
+            <button id="view_workout" class="btn btn-primary col" style="margin-left: 10px; margin-right: 10px;">View
+                Workout-in-Progress</button>
+        </div>
         <hr>
 
 
@@ -70,11 +73,11 @@
 
     <div class="" style="width: 278px; margin: auto;">
 
-
-
         <div id="workout_builder">
 
         </div>
+
+        <hr>
 
     </div>
 
@@ -127,7 +130,11 @@
 
         <p>New form layout for "Workout In Progress" view and editing &#8681; </p>
 
-        <p value="${workout[0].date}" style="margin-bottom: 0;">Workout: Sat Mar 28 2020</p>
+        <p value="${workout[0].date}" style="margin-bottom: 10px;">Workout: Sat Mar 28 2020 <button type="button"
+                style="background: white; border: none; float:right;">
+                <i class="far fa-trash-alt workout_current_set_icon" style=""></i>
+            </button></p>
+
 
         <div id="exercise1div" class="workout_current_set_div">
 
@@ -154,11 +161,11 @@
             <div style="border: 1px solid lightgray; padding: 5px; border-radius: 10px; height: 37px; 
                 overflow: hidden;">
 
-                <p class="wafl">Weight: </p>
+                <label class="wafl" for="weight" style="margin-top: 0;">Weight: </label>
                 <input id="${wip[i]set[i].weight}" name="wip-weight" type="number" class="wafl"
                     style="border: none; width: 15%; text-align: center; font-weight: bold" value="10" readonly>
 
-                <p class="wafl">/ Reps: </p>
+                <label class="wafl" for="reps" style="margin-top: 0;">/ Reps: </label>
                 <input id="${wip[i]set[i].reps}" name="wip-reps" type="number" class="wafl"
                     style="border: none; width: 15%; text-align: center; font-weight: bold;" value="20" readonly>
 
@@ -166,8 +173,14 @@
                     <i class="far fa-trash-alt workout_current_set_icon" style=""></i>
                 </button>
 
-                <button type="button" style="background: white; border: none; float:right;">
+                <button class="edit-btn" type="button" style="background: white; border: none; float:right;">
                     <i class="far fa-edit edit_icon" style=""></i>
+                </button>
+
+                <button id="save-btn" class="save-btn" type="button"
+                    style="background: white; border: none; float: right; display: none;">
+                    <i class="far fa-save"
+                        style="background: #C1F388; font-size: 15px; padding: 5px; border-radius: 5px; margin-right: 5px; "></i>
                 </button>
 
             </div>
@@ -192,8 +205,15 @@
                     <i class="far fa-trash-alt workout_current_set_icon" style=""></i>
                 </button>
 
-                <button type="button" style="background: white; border: none; float:right;">
+                <button id="edit-btn" class="edit-btn" type="button"
+                    style="background: white; border: none; float:right;">
                     <i class="far fa-edit edit_icon" style=""></i>
+                </button>
+
+                <button id="save-btn" class="save-btn" type="button"
+                    style="background: white; border: none; float: right; display: none;">
+                    <i class="far fa-save"
+                        style="background: #C1F388; font-size: 15px; padding: 5px; border-radius: 5px; margin-right: 5px; "></i>
                 </button>
 
             </div>
@@ -203,10 +223,14 @@
 
     </form>
 
+    <script>
+
+
+    </script>
 
 
 
-    <div id="scripts" style="display: none !important;">
+    <div id=" scripts" style="display: none !important;">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
